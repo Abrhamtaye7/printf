@@ -81,5 +81,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	return (ch_count + 1);
+	return (ch_count);
 }
