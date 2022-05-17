@@ -22,6 +22,13 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_c(va_list ap);
 int print_s(va_list ap);
+int print_int(va_list ap);
+int print_b(va_list ap);
+int print_o(va_list ap);
+int print_u(va_list ap);
+int print_x(va_list ap);
+int print_X(va_list ap);
+int print_S(va_list ap);
 
 /**
  * struct converterStruct - structure for specifier conversion.

@@ -18,6 +18,14 @@ int map_specifiers(char c, va_list ap)
 	converter func_cor[] = {
 		{"c", print_c},
 		{"s", print_s},
+		{"d", print_int},
+		{"i", print_int},
+		{"b", print_b},
+		{"o", print_o},
+		{"u", print_u},
+		{"x", print_x},
+		{"X", print_X},
+		{"S", print_S},
 
 		{NULL, NULL}
 	};
