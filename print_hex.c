@@ -13,7 +13,6 @@
 int helper_hex(unsigned int num, int type)
 {
 	int ch_count = 0, rem;
-	char hex_code;
 
 	if (num / 16)
 		ch_count += helper_hex(num / 16, type);

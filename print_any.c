@@ -12,8 +12,7 @@
 
 int helper(int num, int type)
 {
-	int ch_count = 0, i, for_hex, ascii_hex = 97;
-	char ch_rep;
+	int ch_count = 0;
 
 	if (num / type)
 		ch_count += helper(num / type, type);
