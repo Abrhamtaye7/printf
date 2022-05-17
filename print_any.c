@@ -72,11 +72,17 @@ int print_u(va_list ap)
 
 int print_b(va_list ap)
 {
-	int ch_count = 0;
-	unsigned int num = va_arg(ap, unsigned int);
+        unsigned int ch_count = 0, i, rem, div = 1;
 
-	ch_count += helper(num, 2);
+        unsigned int number = va_arg(ap, unsigned int);
 
-	return (ch_count);
+        for (i = 0; number / div > 1; i++, div *= 2)
+                ;
+        for (; div >= 1; number %= div, div /= 2, ch_count++)
+        {
+                rem = number / div;
+                _putchar(rem + '0');
+        }
+
+        return (ch_count);
 }
-
