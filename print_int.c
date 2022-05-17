@@ -1,38 +1,18 @@
 #include "main.h"
 
 /**
- * help_me - helper function for print int and it prints
- * an integer number.
+ * print_int - prints integer number
  *
- * @num: The number to be printed.
+ * ap: The argument parameter
  *
- * Return: Returns the number of characters printed by it.
- *
- */
-
-int help_me(int num)
-{
-	int ch_count = 0;
-
-	if (num / 10)
-		ch_count += help_me(num / 10);
-
-	_putchar((num % 10) + '0');
-	return (ch_count += 1);
-}
-
-/**
- * print_int - prints an integer number to the standard output.
- *
- * @ap: The argument parameter.
- *
- * Return: Returns the number of characters printed by it.
+ * Return: The number of characters to be printed.
  *
  */
 
 int print_int(va_list ap)
 {
-	int ch_count = 0;
+	unsigned int ch_count = 0, i, rem, div = 1;
+
 	int number = va_arg(ap, int);
 
 	if (number < 0)
@@ -42,7 +22,13 @@ int print_int(va_list ap)
 		ch_count += 1;
 	}
 
-	ch_count += help_me(number);
+	for (i = 0; number / div > 9; i++, div *= 10)
+		;
+	for (; div >= 1; number %= div, div /= 10, ch_count++)
+	{
+		rem = number / div;
+		_putchar(rem + '0');
+	}
 
 	return (ch_count);
 }
