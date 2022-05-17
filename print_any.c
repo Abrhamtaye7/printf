@@ -26,7 +26,7 @@ int helper(int num, int type)
  * print_o - prints octal format of the number
  *
  * @ap: The argument parameter
- * 
+ *
  * Return: The number of characters printed by it.
  *
  */
@@ -46,7 +46,7 @@ int print_o(va_list ap)
  * print_u - prints decimal format of the number
  *
  * @ap: Argument parameter.
- * 
+ *
  * Return: Returns the number of characters to be printed
  *
  */
@@ -74,9 +74,9 @@ int print_b(va_list ap)
 {
 	int ch_count = 0;
 	unsigned int num = va_arg(ap, unsigned int);
-	
+
 	ch_count += helper(num, 2);
-	
+
 	return (ch_count);
 }
 
