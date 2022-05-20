@@ -126,6 +126,7 @@ int print_S(va_list ap)
 				_putchar('0');
 
 			_putchar(help_S(str[i]));
+
 			ch_count += 3;
 		}
 
