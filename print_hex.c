@@ -102,6 +102,11 @@ int print_S(va_list ap)
 	int ch_count, i = 0;
 	char *str = va_arg(ap, char *);
 
+	if (str == NULL)
+		str = "(nil)";
+	if (*str == '\0')
+		return (-1);
+
 	for (; *(str + i); i++)
 	{
 		if ((*(str + i) > 0 && *(str + i) < 32) || *(str + i) >= 127)
@@ -114,7 +119,6 @@ int print_S(va_list ap)
 			_putchar(help_S(str[i]));
 
 			ch_count += 1;
-			continue;
 		}
 
 		_putchar(str[i]);
