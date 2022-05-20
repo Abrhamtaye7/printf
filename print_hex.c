@@ -51,7 +51,7 @@ int print_X(va_list ap)
 	for (i = 0; number / div > 15; i++, div *= 16)
 		;
 	for (; div >= 1; number %= div, div /= 16, ch_count++)
-        {
+	{
 		rem = number / div;
 		if (rem > 9)
 		{
@@ -67,9 +67,9 @@ int print_X(va_list ap)
 }
 
 /**
- * print_S - prints custom conversion of string
+ * help_S - helps the print_S function in counting and printing
  *
- * @ap: The argument parameter.
+ * @number: The number to be converted into hexadecimal code
  *
  * Return: The number of characters printed by it.
  *
@@ -97,10 +97,24 @@ int help_S(int number)
 	return (ch_count);
 }
 
+/**
+ * print_S - prints custom conversion of string
+ *
+ * @ap: The argument parameter.
+ *
+ * Return: The number of characters printed by it.
+ *
+ */
+
 int print_S(va_list ap)
 {
-	int ch_count, i = 0;
+	int ch_count = 0, i = 0;
 	char *str = va_arg(ap, char *);
+
+	if (str == NULL)
+		str = "(nil)";
+	if (*str == '\0')
+		return (-1);
 
 	for (; *(str + i); i++)
 	{
@@ -112,9 +126,7 @@ int print_S(va_list ap)
 				_putchar('0');
 
 			_putchar(help_S(str[i]));
-
-			ch_count += 1;
-			continue;
+			ch_count += 3;
 		}
 
 		_putchar(str[i]);
